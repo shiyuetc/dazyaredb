@@ -15,18 +15,19 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 // 管理者ログイン
-Route::post('login', 'LoginController@login')->name('login');
+Route::get('/login', 'LoginController@showLoginForm')->name('login');
+Route::post('/login', 'LoginController@login');
 // ログアウト
-Route::post('logout', 'LoginController@logout')->name('logout');
+Route::post('/logout', 'LoginController@logout')->name('logout');
 
 // 項目の作成
-Route::post('/', 'GagController@create');
+Route::post('/gag', 'GagController@create');
 // 項目の詳細
-Route::get('/{id}', 'GagController@show');
+Route::get('/gag/{id}', 'GagController@show');
 // 項目の更新
-Route::post('/{id}', 'GagController@update');
+Route::post('/gag/{id}', 'GagController@update');
 // 項目の削除
-Route::post('/{id}/delete', 'GagController@delete');
+Route::post('/gag/{id}/delete', 'GagController@delete');
 
 // ログの閲覧
-Route::get('log', 'LogController@index')->name('log');
+Route::get('/log', 'LogController@index')->name('log');
