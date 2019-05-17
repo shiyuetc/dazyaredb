@@ -1,0 +1,14 @@
+body {
+  min-width: 300px;
+}
+
+@media screen and (max-width:598px){
+  .hidden-md {
+    display: none;
+  }
+}
+@media screen and (max-width:398px){
+  .hidden-sm {
+    display: none;
+  }
+}
