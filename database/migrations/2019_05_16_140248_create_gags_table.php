@@ -17,12 +17,7 @@ class CreateGagsTable extends Migration
             $table->string('id', 12);
             $table->string('text', 50);
             $table->string('yomi', 50);
-            $table->string('author_id', 15);
-            $table->string('final_editor_id', 15)->nullable();
-            $table->timestamps();
             $table->primary('id');
-            $table->foreign('author_id')->references('id')->on('users');
-            $table->foreign('final_editor_id')->references('id')->on('users');
         });
     }
 
