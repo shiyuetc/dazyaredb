@@ -6,8 +6,13 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function __construct()
+    public function index()
     {
-        $this->middleware('auth');
+        return view('admin');
+    }
+
+    public function save()
+    {
+
     }
 }
