@@ -2,12 +2,12 @@ body {
   min-width: 300px;
 }
 
-@media screen and (max-width:598px){
+@media screen and (max-width:698px){
   .hidden-md {
     display: none;
   }
 }
-@media screen and (max-width:398px){
+@media screen and (max-width:498px){
   .hidden-sm {
     display: none;
   }
