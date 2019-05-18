@@ -20,8 +20,8 @@ class CreateLogsTable extends Migration
             $table->string('command')->comment('create:作成, update:更新, delete:削除');
             $table->string('befoer_text', 50)->comment('作成時/更新前/削除前の値');
             $table->string('befoer_yomi', 50)->comment('作成時/更新前/削除前の値');
-            $table->string('after_text', 50)->comment('更新後の値');
-            $table->string('after_yomi', 50)->comment('更新後の値');
+            $table->string('after_text', 50)->nullable()->comment('更新後の値');
+            $table->string('after_yomi', 50)->nullable()->comment('更新後の値');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->foreign('user_id')->references('id')->on('users');
         });
