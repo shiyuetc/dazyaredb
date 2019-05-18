@@ -7,6 +7,7 @@
     <meta name="author" content="shiyu">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/vnd.microsoft.icon">
     <link href="{{ asset('css/uikit.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
   </head>
@@ -22,6 +23,9 @@
             <li class="{{ Request::is('log') ? 'uk-active' : '' }}">
               <a href="{{ route('log') }}"><span class="uk-icon" uk-icon="icon:file-text"></span><span class="hidden-sm">&nbsp;ログ</span></a>
             </li>
+            <li class="{{ Request::is('document') ? 'uk-active' : '' }}">
+              <a href="{{ route('document') }}"><span class="uk-icon" uk-icon="icon:rss"></span><span class="hidden-sm">&nbsp;APIマニュアル</span></a>
+            </li>
           </ul>
         </div>
         <div class="uk-navbar-right">
@@ -31,11 +35,11 @@
               <a href="{{ route('login') }}"><span class="uk-icon" uk-icon="icon:sign-in"></span><span class="hidden-sm">&nbsp;管理者ログイン</span></a>
             </li>
             @else
-            <li>
+            <li class="{{ Request::is('admin') ? 'uk-active' : '' }}">
               <a href="#"><span class="uk-icon" uk-icon="icon:user"></span><span class="hidden-sm">&nbsp;管理者メニュー</span></a>
               <div class="uk-navbar-dropdown">
                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                  <li><a href="#">だじゃれの追加</a></li>
+                  <li class="{{ Request::is('admin') ? 'uk-active' : '' }}"><a href="{{ route('register') }}">管理者パネル</a></li>
                   <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></li>
                 </ul>
               </div>
