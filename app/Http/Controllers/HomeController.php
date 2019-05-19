@@ -19,8 +19,12 @@ class HomeController extends Controller
             if($gag_total_count > 0) 
             {
                 $gags = Gag::search($request->q, $page);
+                $response['alert'] = ['type' => 'primary', 'message' => "『{$request->q}』の検索結果：{$gag_total_count}件のだじゃれが該当しました"];
             }
-            $response['alert'] = ['type' => 'primary', 'message' => "『{$request->q}』の検索結果："];
+            else
+            {
+                $response['alert'] = ['type' => 'danger', 'message' => "『{$request->q}』の検索結果：該当するだじゃれが存在しませんでした"];
+            }
         }
         else 
         {
