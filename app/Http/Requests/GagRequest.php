@@ -24,18 +24,18 @@ class GagRequest extends FormRequest
     public function rules()
     {
         return [
-            'text' => 'required|string|min:5|max:50|unique:gags,text,'.$this->route()->parameter('id'),
-            'yomi' => 'required|string|min:5|max:50',
+            'text' => 'required|string|min:4|max:50|unique:gags,text,'.$this->route()->parameter('id'),
+            'yomi' => 'required|string|min:4|max:50',
         ];
     }
 
     public function messages()
     {
         return [
-            'text.min' => 'だじゃれテキストは5文字以上にしてください',
+            'text.min' => 'だじゃれテキストは4文字以上にしてください',
             'text.max' => 'だじゃれテキストは50文字以下にしてください',
-            'text.unique' => 'だじゃれテキストが他のだじゃれと重複しています',
-            'yomi.min' => '読みは5文字以上にしてください',
+            'text.unique' => 'だじゃれテキストが他のだじゃれテキストと重複しています',
+            'yomi.min' => '読みは4文字以上にしてください',
             'yomi.max' => '読みは50文字以下にしてください',
         ];
     }
