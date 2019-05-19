@@ -40,7 +40,7 @@ class GagController extends Controller
         {
             $response['alert'] = ['type' => 'danger', 'message' => '新規登録に失敗しました。'];
         }
-        return view("pages.register", $response);
+        return view("pages.admin.register", $response);
     }
 
     public function update($id, GagRequest $request) 
