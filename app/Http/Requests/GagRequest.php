@@ -24,7 +24,7 @@ class GagRequest extends FormRequest
     public function rules()
     {
         return [
-            'text' => 'required|string|min:5|max:50|unique:gags',
+            'text' => 'required|string|min:5|max:50|unique:gags,text,'.$this->route()->parameter('id'),
             'yomi' => 'required|string|min:5|max:50',
         ];
     }
