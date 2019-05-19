@@ -18,4 +18,9 @@ $command_array_jp = ['create' => '追加', 'update' => '更新', 'destroy' => '�
   </li>
 @endforeach
 </ul>
+<ul class="uk-pagination uk-flex-center" uk-margin>
+  <li class="{{ $page == 1 ? 'uk-disabled' : '' }}"><a href="?page={{ $page - 1 }}"><span uk-pagination-previous></span></a></li>
+  <li class="uk-active"><a href="#">{{ $page }}ページ</a></li>
+  <li class="{{ $page == 999 ? 'uk-disabled' : '' }}"><a href="?page={{ $page + 1 }}"><span uk-pagination-next></span></a></li>
+</ul>
 @endsection
