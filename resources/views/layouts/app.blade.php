@@ -10,7 +10,6 @@
       @include('components.container')
       </div> 
     </div>
-    <script src="{{ asset('js/uikit.min.js') }}"></script>
-    <script src="{{ asset('js/uikit-icons.min.js') }}"></script>
+  @include('components.footer')
   </body>
 </html>
