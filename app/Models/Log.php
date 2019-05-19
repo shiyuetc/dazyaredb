@@ -21,4 +21,39 @@ class Log extends Model
             ->limit(self::$getCount)
             ->get();
     }
+
+    public static function commandCreate($user_id, $gag_id, $text, $yomi)
+    {
+        return Log::insert([
+            'user_id' => $user_id,
+            'gag_id' => $gag_id,
+            'command' => 'create', 
+            'after_text' => $text, 
+            'after_yomi' => $yomi
+        ]);
+    }
+
+    public static function commandUpdate($user_id, $gag_id, $after_text, $after_yomi, $before_text, $before_yomi)
+    {
+        return Log::insert([
+            'user_id' => $user_id,
+            'gag_id' => $gag_id,
+            'command' => 'update', 
+            'after_text' => $after_text, 
+            'after_yomi' => $after_yomi,
+            'before_text' => $before_text, 
+            'before_yomi' => $before_yomi
+        ]);
+    }
+
+    public static function commandDestroy($user_id, $gag_id, $text, $yomi)
+    {
+        return Log::insert([
+            'user_id' => $user_id,
+            'gag_id' => $gag_id,
+            'command' => 'destroy', 
+            'after_text' => $text, 
+            'after_yomi' => $yomi 
+        ]);
+    }
 }
