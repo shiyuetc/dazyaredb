@@ -1,12 +1,3 @@
-@extends('layouts.app')
-@section('content-header')
-<ul uk-tab>
-  <li class="{{ Request::is('admin/register') ? 'uk-active' : '' }}">
-    <a onclick="location.href='{{ route('register') }}'"><span class="uk-icon" uk-icon="icon:file-edit"></span>&nbsp;新規登録</a>
-  </li>
-</ul>
-@endsection
-@section('content')
 <h3 class="uk-heading-bullet">だじゃれの新規登録</h3>
 <form class="uk-form-stacked" method="POST" action="{{ route('register') }}">
   {{ csrf_field() }}
@@ -20,4 +11,3 @@
   </div>
   <button class="uk-button uk-button-primary" type="submit">新規登録</button>
 </form>
-@endsection

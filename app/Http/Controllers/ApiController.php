@@ -13,11 +13,11 @@ class ApiController extends Controller
         $page = (isset($request->page) && $request->page > 0 && $request->page < 1000) ? $request->page : 1;
         if(isset($request->q))
         {
-            $gags = Gag::where('text', 'like', "%{$request->q}%")->orWhere('yomi', 'like', "%{$request->q}%")->offset(($page - 1) * 200)->limit(200)->get();
+            $gags = Gag::search($request->q, $page);
         }
         else 
         {
-            $gags = Gag::offset(($page - 1) * 200)->limit(200)->get();
+            $gags = Gag::getPage($page);
         }
         return response()->json($gags);
     }
