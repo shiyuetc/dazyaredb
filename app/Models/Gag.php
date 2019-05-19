@@ -15,4 +15,22 @@ class Gag extends Model
     protected $fillable = [
         'id', 'text', 'yomi',
     ];
+
+    private static $getCount = 200;
+
+    public static function getPage($page = 1)
+    {
+        return Gag::offset(($page - 1) * self::$getCount)
+            ->limit(self::$getCount)
+            ->get();
+    }
+
+    public static function search($q, $page = 1)
+    {
+        return Gag::where('text', 'like', "%{$q}%")
+            ->orWhere('yomi', 'like', "%{$q}%")
+            ->offset(($page - 1) * self::$getCount)
+            ->limit(self::$getCount)
+            ->get();
+    }
 }

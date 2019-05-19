@@ -9,17 +9,29 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $gags = array();
+        $page = (isset($request->page) && $request->page > 0 && $request->page < 1000) ? $request->page : 1;
         if(isset($request->q))
         {
-            $gags = Gag::where('text', 'like', "%{$request->q}%")->orWhere('yomi', 'like', "%{$request->q}%")->get();
+            $gag_total_count = Gag::where('text', 'like', "%{$request->q}%")
+            ->orWhere('yomi', 'like', "%{$request->q}%")
+            ->count();
+
+            if($gag_total_count > 0) 
+            {
+                $gags = Gag::search($request->q, $page);
+            }
+            $response['alert'] = ['type' => 'primary', 'message' => "『{$request->q}』の検索結果："];
         }
         else 
         {
-            $gags = Gag::all();
+            $gag_total_count = Gag::count();
+            $gags = Gag::getPage();
         }
         
-        $data = ['gags' => $gags, 'q' => $request->q];
-        return view('home', $data);
+        $response['gag_total_count'] = isset($gag_total_count) ? $gag_total_count : 0;
+        $response['gags'] = isset($gags) ? $gags : array();
+        $response['q'] = $request->q;
+        $response['page'] = $page;
+        return view('pages.home', $response);
     }
 }
