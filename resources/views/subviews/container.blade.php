@@ -1,5 +1,4 @@
-<div class="uk-margin-medium-top"></div>
-<div class="uk-container">
+<div class="uk-container uk-margin-medium-top">
   @yield('content-header')
   @include('components.alert')
   @yield('content')

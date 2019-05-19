@@ -1,8 +1,7 @@
-@extends('layouts.app')
-
+@extends('layouts.error')
 @section('content')
-<div class="uk-alert-danger" uk-alert>
-  <a class="uk-alert-close" uk-close></a>
-  <p>システムがエラーを返しました。</p>
+<div style="text-align: center;">
+  <h1 class="uk-heading-large">500 Error</h1>
+  <p class="uk-text-small">システムがエラーを返しました。</p>
 </div>
 @endsection
