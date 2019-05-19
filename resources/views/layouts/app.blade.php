@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
   <head>
-  @include('components.head')
+  @include('subviews.head')
   </head>
   <body>
     <div id="app">
-    @include('components.header')
+    @include('subviews.header')
       <div id="main">
-      @include('components.container')
+      @include('subviews.container')
       </div> 
     </div>
-  @include('components.footer')
+  @include('subviews.footer')
   </body>
 </html>
