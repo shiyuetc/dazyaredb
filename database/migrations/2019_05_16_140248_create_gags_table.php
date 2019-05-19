@@ -15,7 +15,7 @@ class CreateGagsTable extends Migration
     {
         Schema::create('gags', function (Blueprint $table) {
             $table->string('id', 12);
-            $table->string('text', 50);
+            $table->string('text', 50)->unique();
             $table->string('yomi', 50);
             $table->primary('id');
         });
