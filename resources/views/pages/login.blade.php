@@ -2,12 +2,6 @@
 
 @section('content')
 <h3 class="uk-heading-bullet">管理者ログインフォーム</h3>
-@if($errors->has('id'))
-<div class="uk-alert-danger" uk-alert>
-    <a class="uk-alert-close" uk-close></a>
-  <p>{{ $errors->first('id') }}</p>
-  </div>
-@endif
 <form class="uk-form-stacked" method="POST" action="{{ route('login') }}">
   {{ csrf_field() }}
   <div class="uk-margin">

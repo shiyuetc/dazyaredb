@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@if(isset($alert))
-<div class="uk-alert-{{ $alert['type'] }}" uk-alert>
-  <a class="uk-alert-close" uk-close></a>
-  <p>{{ $alert['message'] }}</p>
-</div>
-@endif
 <h3 class="uk-heading-bullet">だじゃれの詳細</h3>
 
 @auth

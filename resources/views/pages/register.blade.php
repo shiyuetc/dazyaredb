@@ -1,17 +1,12 @@
 @extends('layouts.app')
-
-@section('content')
+@section('content-header')
 <ul uk-tab>
   <li class="{{ Request::is('admin/register') ? 'uk-active' : '' }}">
     <a onclick="location.href='{{ route('register') }}'"><span class="uk-icon" uk-icon="icon:file-edit"></span>&nbsp;新規登録</a>
   </li>
 </ul>
-@if(isset($alert))
-<div class="uk-alert-{{ $alert['type'] }}" uk-alert>
-  <a class="uk-alert-close" uk-close></a>
-  <p>{{ $alert['message'] }}</p>
-</div>
-@endif
+@endsection
+@section('content')
 <h3 class="uk-heading-bullet">だじゃれの新規登録</h3>
 <form class="uk-form-stacked" method="POST" action="{{ route('register') }}">
   {{ csrf_field() }}
