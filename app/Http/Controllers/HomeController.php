@@ -29,7 +29,7 @@ class HomeController extends Controller
         else 
         {
             $gag_total_count = Gag::count();
-            $gags = Gag::getPage();
+            $gags = Gag::getPage($page);
         }
         
         $response['gag_total_count'] = isset($gag_total_count) ? $gag_total_count : 0;
