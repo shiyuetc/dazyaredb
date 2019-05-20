@@ -21,4 +21,9 @@ class ApiController extends Controller
         }
         return response()->json($gags);
     }
+
+    public function random()
+    {
+        return response()->json(Gag::random());
+    }
 }

@@ -33,4 +33,9 @@ class Gag extends Model
             ->limit(self::$getCount)
             ->get();
     }
+
+    public static function random()
+    {
+        return Gag::inRandomOrder()->first();
+    }
 }

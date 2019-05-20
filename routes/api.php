@@ -15,4 +15,5 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => ['api']], function(){
   Route::get('/list', 'ApiController@index');
+  Route::get('/random', 'ApiController@random');
 });
