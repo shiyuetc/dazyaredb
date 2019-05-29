@@ -12,11 +12,17 @@ class Log extends Model
         'user_id', 'name', 'gag_id', 'command', 'before_text', 'before_yomi', 'after_text', 'after_yomi', 'created_at'
     ];
 
+    public function gag()
+    {
+        return $this->belongsTo('App\Models\Gag');
+    }
+
     private static $getCount = 500;
 
     public static function getPage($page = 1)
     {
-        return Log::orderBy('id', 'desc')
+        return Log::with(['gag'])
+            ->orderBy('id', 'desc')
             ->offset(($page - 1) * self::$getCount)
             ->limit(self::$getCount)
             ->get();

@@ -7,7 +7,7 @@ $command_array_jp = ['create' => '追加', 'update' => '更新', 'destroy' => '�
   <li class="uk-text-small">
     {{ $log->created_at }}
     {{ $log->user_id }}さんが
-    [ID:<a href="gag/{{ $log->gag_id }}">{{ $log->gag_id }}</a>]
+    [ID:<a @isset($log->gag)href="gag/{{ $log->gag_id }}"@endisset>{{ $log->gag_id }}</a>]
     @if($log->command == 'create' || $log->command == 'destroy') {{ $log->after_text }}({{ $log->after_yomi }})を 
     @else {{ $log->before_text }}({{ $log->before_yomi }})を 
     {{ $log->after_text }}({{ $log->after_yomi }})に @endif

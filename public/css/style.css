@@ -2,6 +2,12 @@ body {
   min-width: 300px;
 }
 
+a:not([href]) {
+  color: #666 !important;
+  text-decoration: none !important;
+  cursor: default !important;
+}
+
 @media screen and (max-width:698px){
   .hidden-md {
     display: none;
