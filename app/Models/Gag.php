@@ -20,7 +20,8 @@ class Gag extends Model
 
     public static function getPage($page = 1)
     {
-        return Gag::offset(($page - 1) * self::$getCount)
+        return Gag::orderBy('yomi', 'asc')
+            ->offset(($page - 1) * self::$getCount)
             ->limit(self::$getCount)
             ->get();
     }
@@ -29,6 +30,7 @@ class Gag extends Model
     {
         return Gag::where('text', 'like', "%{$q}%")
             ->orWhere('yomi', 'like', "%{$q}%")
+            ->orderBy('yomi', 'asc')
             ->offset(($page - 1) * self::$getCount)
             ->limit(self::$getCount)
             ->get();
