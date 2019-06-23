@@ -20,5 +20,25 @@
     },
     "dependencies": {
         "popper.js": "^1.15.0"
-    }
+    },
+    "name": "dazyaredb",
+    "version": "1.0.0",
+    "main": "webpack.mix.js",
+    "directories": {
+        "test": "tests"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shiyuetc/dazyaredb.git"
+    },
+    "keywords": [
+        "dazyare"
+    ],
+    "author": "shiyu",
+    "license": "MIT",
+    "bugs": {
+    "url": "https://github.com/shiyuetc/dazyaredb/issues"
+    },
+    "homepage": "https://github.com/shiyuetc/dazyaredb#readme",
+    "description": ""
 }
